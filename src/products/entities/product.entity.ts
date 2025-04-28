@@ -1,11 +1,15 @@
-export class Product {
 
+interface UpdateWithOptions {
+    name: string | undefined, 
+    description: string | undefined, 
+    price: number | undefined}
+
+export class Product {
 
     // public id: string;
     // public name: string;
     // public description?: string;
     // public price: number;
-    
 
     constructor(
         public id: string,
@@ -14,6 +18,10 @@ export class Product {
         public price: number
     ){}
 
-    // Todo: updateWith
+    updateWith( {name, description, price}: UpdateWithOptions ){
+        this.name = name ?? this.name;
+        this.description = description ?? this.description;
+        this.price = price ?? this.price;
+    }
 
 }
